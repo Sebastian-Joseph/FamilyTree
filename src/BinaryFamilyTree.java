@@ -53,7 +53,13 @@ public class BinaryFamilyTree {
 
         public static void insert(Node node, String data, int age) {
 
-            if (age < node.age) { if (node.left != null) { insert(node.left, data, age); } else { System.out.println(" Inserted " + data + " to left of " + node.data); node.left = new Node(data, age); } } else if (age > node.age) {
+            if (age < node.age) {
+                if (node.left != null) {
+                    insert(node.left, data, age);
+                } else {
+                    System.out.println(" Inserted " + data + " to left of " + node.data); node.left = new Node(data, age);
+                }
+            } else if (age > node.age) {
                 if (node.right != null) {
                     insert(node.right, data, age);
                 } else {
