@@ -5,13 +5,13 @@ public class BinaryFamilyTree {
         String data;
         Node left;
         Node right;
-        int age;
+        int gen;
 
-        public Node(String data, int age) {
+        public Node(String data, int gen) {
             this.data = data;
             this.left = null;
             this.right = null;
-            this.age = age;
+            this.gen = gen;
 
         }
 
@@ -51,21 +51,21 @@ public class BinaryFamilyTree {
 
 
 
-        public static void insert(Node node, String data, int age) {
+        public static void insert(Node node, String data, int gen) {
 
-            if (age < node.age) {
+            if (gen < node.gen) {
                 if (node.left != null) {
-                    insert(node.left, data, age);
+                    insert(node.left, data, gen);
                 } else {
-                    System.out.println(" Inserted " + data + " to left of " + node.data); node.left = new Node(data, age);
+                    System.out.println(" Inserted " + data + " to left of " + node.data); node.left = new Node(data, gen);
                 }
-            } else if (age > node.age) {
+            } else if (gen > node.gen) {
                 if (node.right != null) {
-                    insert(node.right, data, age);
+                    insert(node.right, data, gen);
                 } else {
                     System.out.println("  Inserted " + data + " to right of "
                             + node.data);
-                    node.right = new Node(data, age);
+                    node.right = new Node(data, gen);
                 }
             }
 
