@@ -5,16 +5,15 @@ public class BinaryFamilyTree {
         String data;
         Node left;
         Node right;
-        int gen;
+        int id;
 
-        public Node(String data, int gen) {
+        public Node(String data, int id) {
             this.data = data;
             this.left = null;
             this.right = null;
-            this.gen = gen;
+            this.id = id;
 
         }
-
 
 
         public Node getLeft() {
@@ -40,9 +39,7 @@ public class BinaryFamilyTree {
 
             insert(root, "Great-Grandma (Mom)", 112);
             insert(root, "Great-Grandpa (Mom)", 108);
-
-
-
+            
 
             insert(root, "Grandma (Dad)", 51);
             insert(root, "Grandpa (Dad)", 49);
@@ -59,20 +56,20 @@ public class BinaryFamilyTree {
 
 
 
-        public static void insert(Node node, String data, int gen) {
+        public static void insert(Node node, String data, int id) {
 
-            if (gen < node.gen) {
+            if (id < node.id) {
                 if (node.left != null) {
-                    insert(node.left, data, gen);
+                    insert(node.left, data, id);
                 } else {
-                    System.out.println("Inserted " + data + " to left of " + node.data); node.left = new Node(data, gen);
+                    System.out.println("Inserted " + data + " to left of " + node.data); node.left = new Node(data, id);
                 }
-            } else if (gen > node.gen) {
+            } else if (id > node.id) {
                 if (node.right != null) {
-                    insert(node.right, data, gen);
+                    insert(node.right, data, id);
                 } else {
                     System.out.println("Inserted " + data + " to right of " + node.data);
-                    node.right = new Node(data, gen);
+                    node.right = new Node(data, id);
                 }
             }
 
@@ -94,8 +91,6 @@ public class BinaryFamilyTree {
 
 
     public static void main(String[] args) {
-        BinaryFamilyTree tree = new BinaryFamilyTree();
-
         Node.run();
     }
 }
